@@ -1,7 +1,6 @@
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_text_splitters import TokenTextSplitter
 
-# Split the loaded PDF into smaller chunks
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-docs = text_splitter.split_documents(documents)
+def split_docs(documents):
+    splitter = TokenTextSplitter(chunk_size=1000, chunk_overlap=200)
+    return splitter.split_documents(documents)
 
-print(f"Number of chunks: {len(docs)}")
